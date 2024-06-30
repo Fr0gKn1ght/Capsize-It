@@ -1,8 +1,123 @@
-[gd_scene load_steps=2 format=3 uid="uid://8iemdmvdgo00"]
+[gd_scene load_steps=19 format=3 uid="uid://dkwm6yhkcc8ha"]
 
 [ext_resource type="PackedScene" uid="uid://cniy14tryo7jx" path="res://Scenes/Boat.tscn" id="1_3qu26"]
+[ext_resource type="Script" path="res://Scripts/targetCollision.gd" id="1_8psai"]
+[ext_resource type="Script" path="res://Scripts/CharacterBody2D.gd" id="2_u0gfs"]
+[ext_resource type="Texture2D" uid="uid://bwjpi5w5yl87r" path="res://Assets/barrel-removebg-preview.png" id="3_ltuwk"]
+[ext_resource type="Texture2D" uid="uid://bxv2fx8iehi8q" path="res://Assets/slots-removebg-preview.png" id="5_34w71"]
+[ext_resource type="Texture2D" uid="uid://bnevnq82emjfs" path="res://Assets/crate-removebg-preview.png" id="6_xmsh0"]
+[ext_resource type="Texture2D" uid="uid://6ygccxht8v44" path="res://Assets/cargo-removebg-preview.png" id="7_5batb"]
+[ext_resource type="Texture2D" uid="uid://curo0o57r30co" path="res://Assets/sharkbox-removebg-preview.png" id="8_0ehla"]
+[ext_resource type="Texture2D" uid="uid://37dyrwi8yfvk" path="res://Assets/Anchorimg-removebg-preview.png" id="9_xad7q"]
+[ext_resource type="Texture2D" uid="uid://cj6cgcilcod30" path="res://Assets/GameBackground/Sky Copy.png" id="10_nyt7n"]
+[ext_resource type="Texture2D" uid="uid://r7njurduuvf1" path="res://Assets/GameBackground/Clouds.png" id="11_2vhol"]
+[ext_resource type="Texture2D" uid="uid://bm6lo5iyciqlg" path="res://Assets/GameBackground/Seaweed.png" id="12_dgqx3"]
+[ext_resource type="Texture2D" uid="uid://blssb7up1sc3w" path="res://Assets/GameBackground/Fish 1.png" id="13_xxbf5"]
+[ext_resource type="Texture2D" uid="uid://coso17x7juxxh" path="res://Assets/GameBackground/Fish 2.png" id="14_qiw45"]
+[ext_resource type="Texture2D" uid="uid://2cmdc2ugj42m" path="res://Assets/GameBackground/WaterFront.png" id="15_r1btq"]
+[ext_resource type="AudioStream" uid="uid://cqk5nnob4i38n" path="res://Assets/Sounds/BGM.mp3" id="16_cbqpa"]
+[ext_resource type="AudioStream" uid="uid://bf4qfwwy61bpj" path="res://Assets/Sounds/WaterAmbience.mp3" id="17_g75j8"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osup2"]
+size = Vector2(135, 123)
+
+[node name="main2" type="Node2D"]
+script = ExtResource("1_8psai")
+
+[node name="Target" type="CharacterBody2D" parent="."]
+position = Vector2(-304, 93.5)
+script = ExtResource("2_u0gfs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target"]
+position = Vector2(874, 271)
+shape = SubResource("RectangleShape2D_osup2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Target"]
+position = Vector2(869, 267)
+texture = ExtResource("3_ltuwk")
+
+[node name="Roster" type="Sprite2D" parent="."]
+position = Vector2(306, 134.5)
+scale = Vector2(0.768254, 0.702778)
+texture = ExtResource("5_34w71")
+
+[node name="RosterElement0" type="Sprite2D" parent="Roster"]
+position = Vector2(-209.566, -9.9605)
+rotation = 0.0290376
+scale = Vector2(1.06916, 1.15119)
+texture = ExtResource("6_xmsh0")
+
+[node name="RosterElement1" type="Sprite2D" parent="Roster"]
+position = Vector2(-70.2893, -15.6522)
+rotation = -1.03831
+scale = Vector2(0.542561, 0.574477)
+texture = ExtResource("7_5batb")
+
+[node name="RosterElement2" type="Sprite2D" parent="Roster"]
+position = Vector2(68.7825, -20.4761)
+rotation = -1.53956
+scale = Vector2(0.536697, 1.11343)
+texture = ExtResource("8_0ehla")
+
+[node name="RosterElement3" type="Sprite2D" parent="Roster"]
+position = Vector2(204.359, -22.6265)
+scale = Vector2(0.742768, 1.21573)
+texture = ExtResource("9_xad7q")
+
+[node name="TextEdit" type="TextEdit" parent="Roster"]
+offset_left = -138.0
+offset_top = 94.0
+offset_right = -5.0
+offset_bottom = 132.0
+text = "Text Here ..."
+metadata/_edit_use_anchors_ = true
+
+[node name="TextEdit2" type="TextEdit" parent="Roster"]
+offset_left = 24.6818
+offset_top = 94.087
+offset_right = 157.682
+offset_bottom = 132.087
+text = "Text Here ..."
+metadata/_edit_use_anchors_ = true
+
+[node name="EnvironmentArt" type="Node2D" parent="."]
+position = Vector2(324, 576)
+scale = Vector2(0.6, 0.6)
+
+[node name="SkyCopy" type="Sprite2D" parent="EnvironmentArt"]
+z_index = -255
+texture = ExtResource("10_nyt7n")
+
+[node name="Clouds" type="Sprite2D" parent="EnvironmentArt"]
+z_index = -100
+position = Vector2(0, -526)
+texture = ExtResource("11_2vhol")
+
+[node name="Seaweed" type="Sprite2D" parent="EnvironmentArt"]
+position = Vector2(0, 820)
+texture = ExtResource("12_dgqx3")
+
+[node name="Fish1" type="Sprite2D" parent="EnvironmentArt"]
+position = Vector2(278, 571)
+texture = ExtResource("13_xxbf5")
+
+[node name="Fish2" type="Sprite2D" parent="EnvironmentArt"]
+position = Vector2(343, 645)
+texture = ExtResource("14_qiw45")
+
+[node name="WaterFront" type="Sprite2D" parent="EnvironmentArt"]
+position = Vector2(0, 672)
+texture = ExtResource("15_r1btq")
+
+[node name="BGM" type="AudioStreamPlayer" parent="EnvironmentArt"]
+stream = ExtResource("16_cbqpa")
+volume_db = -12.361
+autoplay = true
+
+[node name="WaterAmbience" type="AudioStreamPlayer" parent="EnvironmentArt"]
+stream = ExtResource("17_g75j8")
+volume_db = -32.82
+autoplay = true
 
 [node name="Boat" parent="." instance=ExtResource("1_3qu26")]
-position = Vector2(531, 377)
+position = Vector2(297, 603)

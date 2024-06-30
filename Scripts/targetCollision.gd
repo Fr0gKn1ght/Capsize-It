@@ -1,6 +1,6 @@
 extends Node2D
 
-var element = preload("res://Element_loader.tscn")
+var element = preload("res://Scenes/Element_loader.tscn")
 
 var elementalArray = ["crate","cargo","shark","crab"]
 var queuetracker = 0
@@ -13,6 +13,7 @@ func _ready():
 func collision():
 	var instance = element.instantiate()
 	instance.position = (Vector2(77,33))
+	print(elementalArray[queuetracker])
 	instance.texture = applyTexture(elementalArray[queuetracker])
 	add_child(instance)
 	#main.Roster.RosterElement1.hide()

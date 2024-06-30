@@ -12,9 +12,6 @@ public partial class Boat : AnimatableBody2D
 
 	//If the ship is not at this current rotation, then "TiltBoat" function will adjust the boat's rotation.
 	private float targetRotation = 0;
-
-	
-
 	
 	private float RadiansToDegrees(float rads)
 	{
