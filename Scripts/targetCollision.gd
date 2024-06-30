@@ -1,6 +1,6 @@
 extends Node2D
 
-var element = preload("res://Element_loader.tscn")
+var element = preload("res://Scenes/Element_loader.tscn")
 
 var elementalArray = ["crate","cargo","shark","crab"]
 var queuetracker = 0

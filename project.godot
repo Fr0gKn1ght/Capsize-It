@@ -11,8 +11,16 @@ config_version=5
 [application]
 
 config/name="Capsize It"
+run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/image="res://Assets/SplashImageVertical.png"
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=648
+window/size/viewport_height=1152
+mouse_cursor/custom_image="res://Assets/UI Elements/cursor_pointer3D.png"
 
 [dotnet]
 
