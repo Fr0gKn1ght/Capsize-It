@@ -1,9 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://iuakasodb5dx"]
+[gd_scene load_steps=20 format=3 uid="uid://dkwm6yhkcc8ha"]
 
+[ext_resource type="PackedScene" uid="uid://cniy14tryo7jx" path="res://Scenes/Boat.tscn" id="1_3qu26"]
 [ext_resource type="Script" path="res://Scripts/targetCollision.gd" id="1_agbku"]
 [ext_resource type="Script" path="res://Scripts/CharacterBody2D.gd" id="2_amkjl"]
 [ext_resource type="Texture2D" uid="uid://bwjpi5w5yl87r" path="res://Assets/barrel-removebg-preview.png" id="3_n34qj"]
-[ext_resource type="Texture2D" uid="uid://du4m63kb2fxkb" path="res://Assets/boat-removebg-preview.png" id="4_eoqb2"]
 [ext_resource type="Texture2D" uid="uid://bxv2fx8iehi8q" path="res://Assets/slots-removebg-preview.png" id="5_mejpc"]
 [ext_resource type="Texture2D" uid="uid://bnevnq82emjfs" path="res://Assets/crate-removebg-preview.png" id="6_btykg"]
 [ext_resource type="Texture2D" uid="uid://6ygccxht8v44" path="res://Assets/cargo-removebg-preview.png" id="7_6hd83"]
@@ -17,12 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://2cmdc2ugj42m" path="res://Assets/GameBackground/WaterFront.png" id="15_01eyt"]
 [ext_resource type="AudioStream" uid="uid://cqk5nnob4i38n" path="res://Assets/Sounds/BGM.mp3" id="16_cje3f"]
 [ext_resource type="AudioStream" uid="uid://bf4qfwwy61bpj" path="res://Assets/Sounds/WaterAmbience.mp3" id="17_fx4fw"]
+[ext_resource type="PackedScene" uid="uid://bleafnomxtdxj" path="res://Scenes/WeightedObject.tscn" id="18_bytb8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osup2"]
 size = Vector2(135, 123)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2xrs"]
-size = Vector2(214.124, 121)
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_agbku")
@@ -39,14 +37,8 @@ shape = SubResource("RectangleShape2D_osup2")
 position = Vector2(869, 267)
 texture = ExtResource("3_n34qj")
 
-[node name="Boat" type="CollisionShape2D" parent="."]
-position = Vector2(334, 818)
-scale = Vector2(1.4697, 1)
-shape = SubResource("RectangleShape2D_w2xrs")
-
-[node name="BoatSprite" type="Sprite2D" parent="Boat"]
-position = Vector2(3.8147e-05, -5)
-texture = ExtResource("4_eoqb2")
+[node name="Boat" parent="." instance=ExtResource("1_3qu26")]
+position = Vector2(338, 818)
 
 [node name="Roster" type="Sprite2D" parent="."]
 position = Vector2(306, 134.5)
@@ -130,3 +122,6 @@ autoplay = true
 stream = ExtResource("17_fx4fw")
 volume_db = -32.82
 autoplay = true
+
+[node name="WeightedObject" parent="." instance=ExtResource("18_bytb8")]
+position = Vector2(336, 300)

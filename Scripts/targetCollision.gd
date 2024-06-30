@@ -13,8 +13,7 @@ func _ready():
 func collision():
 	var instance = element.instantiate()
 	instance.position = (Vector2(77,33))
-	print(elementalArray[queuetracker])
-	instance.texture = applyTexture(elementalArray[queuetracker])
+	instance.get_node("./Sprite2D").set_texture(applyTexture(elementalArray[queuetracker]))
 	add_child(instance)
 	#main.Roster.RosterElement1.hide()
 	++queuetracker

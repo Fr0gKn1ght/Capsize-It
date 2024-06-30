@@ -1,8 +1,10 @@
 using Godot;
 using System;
+using System.Runtime.CompilerServices;
 
-public partial class Boat : AnimatableBody2D
+public partial class Boat : RigidBody2D
 {
+
 	//The threshold that must be met/exceeded for the boat to capsize.
 	[Export]
 	private float tiltThreshold = 30;
@@ -10,8 +12,17 @@ public partial class Boat : AnimatableBody2D
 	[Export]
 	private float tiltSpeed = 20;
 
+	private float weight = 0;
+
+	private Godot.Collections.Array<Node2D> collisions;
+
 	//If the ship is not at this current rotation, then "TiltBoat" function will adjust the boat's rotation.
 	private float targetRotation = 0;
+
+	private void CalculateRotation()
+	{
+		targetRotation = weight;
+	}
 	
 	private float RadiansToDegrees(float rads)
 	{
@@ -47,13 +58,18 @@ public partial class Boat : AnimatableBody2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		
+		ContactMonitor = true;
+		MaxContactsReported = 50;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+    public override void _IntegrateForces(PhysicsDirectBodyState2D state)
+    {
+		//LinearVelocity = new Vector2(0,0);
+    }
 
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(double delta)
+	{
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -68,4 +84,15 @@ public partial class Boat : AnimatableBody2D
 		}
 		TiltBoat((float)delta);
 	}
+
+	private void OnBodyEntered(Node body)
+	{
+		AngularVelocity += DegreesToRadians(40);
+	}
+
+	private void OnScaleAreaEntered(Node2D body)
+	{
+		GD.Print("Area2D entered");
+	}
+
 }
