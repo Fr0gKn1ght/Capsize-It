@@ -1,19 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://iuakasodb5dx"]
+[gd_scene load_steps=18 format=3 uid="uid://iuakasodb5dx"]
 
 [ext_resource type="Script" path="res://Scripts/targetCollision.gd" id="1_agbku"]
 [ext_resource type="Script" path="res://Scripts/CharacterBody2D.gd" id="2_amkjl"]
 [ext_resource type="Texture2D" uid="uid://bwjpi5w5yl87r" path="res://Assets/barrel-removebg-preview.png" id="3_n34qj"]
 [ext_resource type="Texture2D" uid="uid://du4m63kb2fxkb" path="res://Assets/boat-removebg-preview.png" id="4_eoqb2"]
-[ext_resource type="Texture2D" uid="uid://bxv2fx8iehi8q" path="res://Assets/slots-removebg-preview.png" id="5_mejpc"]
-[ext_resource type="Texture2D" uid="uid://bnevnq82emjfs" path="res://Assets/crate-removebg-preview.png" id="6_btykg"]
-[ext_resource type="Texture2D" uid="uid://6ygccxht8v44" path="res://Assets/cargo-removebg-preview.png" id="7_6hd83"]
-[ext_resource type="Texture2D" uid="uid://curo0o57r30co" path="res://Assets/sharkbox-removebg-preview.png" id="8_h84xx"]
-[ext_resource type="Texture2D" uid="uid://37dyrwi8yfvk" path="res://Assets/Anchorimg-removebg-preview.png" id="9_i5hmj"]
 [ext_resource type="Texture2D" uid="uid://cj6cgcilcod30" path="res://Assets/GameBackground/Sky Copy.png" id="10_ffm6d"]
 [ext_resource type="Texture2D" uid="uid://r7njurduuvf1" path="res://Assets/GameBackground/Clouds.png" id="11_13t1m"]
 [ext_resource type="Texture2D" uid="uid://bm6lo5iyciqlg" path="res://Assets/GameBackground/Seaweed.png" id="12_0uv16"]
 [ext_resource type="Texture2D" uid="uid://blssb7up1sc3w" path="res://Assets/GameBackground/Fish 1.png" id="13_bwtqg"]
+[ext_resource type="Texture2D" uid="uid://dg671ejad1pws" path="res://Assets/UI Elements/metalPanel.png" id="13_xqjqf"]
 [ext_resource type="Texture2D" uid="uid://coso17x7juxxh" path="res://Assets/GameBackground/Fish 2.png" id="14_6kctp"]
+[ext_resource type="FontFile" uid="uid://ccpeeckxtsk65" path="res://Assets/UI Elements/This Cafe.ttf" id="14_fcv2p"]
+[ext_resource type="Texture2D" uid="uid://72c2anc7jptj" path="res://Assets/UI Elements/metalPanelArrowCustom.png" id="15_0fdhj"]
 [ext_resource type="Texture2D" uid="uid://2cmdc2ugj42m" path="res://Assets/GameBackground/WaterFront.png" id="15_01eyt"]
 [ext_resource type="AudioStream" uid="uid://cqk5nnob4i38n" path="res://Assets/Sounds/BGM.mp3" id="16_cje3f"]
 [ext_resource type="AudioStream" uid="uid://bf4qfwwy61bpj" path="res://Assets/Sounds/WaterAmbience.mp3" id="17_fx4fw"]
@@ -47,50 +45,6 @@ shape = SubResource("RectangleShape2D_w2xrs")
 [node name="BoatSprite" type="Sprite2D" parent="Boat"]
 position = Vector2(3.8147e-05, -5)
 texture = ExtResource("4_eoqb2")
-
-[node name="Roster" type="Sprite2D" parent="."]
-position = Vector2(306, 134.5)
-scale = Vector2(0.768254, 0.702778)
-texture = ExtResource("5_mejpc")
-
-[node name="RosterElement0" type="Sprite2D" parent="Roster"]
-position = Vector2(-209.566, -9.9605)
-rotation = 0.0290376
-scale = Vector2(1.06916, 1.15119)
-texture = ExtResource("6_btykg")
-
-[node name="RosterElement1" type="Sprite2D" parent="Roster"]
-position = Vector2(-70.2893, -15.6522)
-rotation = -1.03831
-scale = Vector2(0.542561, 0.574477)
-texture = ExtResource("7_6hd83")
-
-[node name="RosterElement2" type="Sprite2D" parent="Roster"]
-position = Vector2(68.7825, -20.4761)
-rotation = -1.53956
-scale = Vector2(0.536697, 1.11343)
-texture = ExtResource("8_h84xx")
-
-[node name="RosterElement3" type="Sprite2D" parent="Roster"]
-position = Vector2(204.359, -22.6265)
-scale = Vector2(0.742768, 1.21573)
-texture = ExtResource("9_i5hmj")
-
-[node name="TextEdit" type="TextEdit" parent="Roster"]
-offset_left = -138.0
-offset_top = 94.0
-offset_right = -5.0
-offset_bottom = 132.0
-text = "Text Here ..."
-metadata/_edit_use_anchors_ = true
-
-[node name="TextEdit2" type="TextEdit" parent="Roster"]
-offset_left = 24.6818
-offset_top = 94.087
-offset_right = 157.682
-offset_bottom = 132.087
-text = "Text Here ..."
-metadata/_edit_use_anchors_ = true
 
 [node name="EnvironmentArt" type="Node2D" parent="."]
 position = Vector2(324, 576)
@@ -130,3 +84,40 @@ autoplay = true
 stream = ExtResource("17_fx4fw")
 volume_db = -32.82
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MetalPanel" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(529, 60)
+texture = ExtResource("13_xqjqf")
+
+[node name="MetalPanel2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(422, 60)
+texture = ExtResource("13_xqjqf")
+
+[node name="MetalPanel3" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(312, 60)
+texture = ExtResource("13_xqjqf")
+
+[node name="WeightStaticText" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 200.0
+offset_bottom = 96.0
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("14_fcv2p")
+theme_override_font_sizes/normal_font_size = 46
+text = "WEIGHT:"
+fit_content = true
+scroll_active = false
+
+[node name="ArrowLeft" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(233, 60)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_0fdhj")
+
+[node name="ArrowRight" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(605, 60)
+rotation = 3.14159
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("15_0fdhj")
