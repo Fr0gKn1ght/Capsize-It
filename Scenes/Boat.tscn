@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cniy14tryo7jx"]
+
+[ext_resource type="Script" path="res://Scripts/Boat.cs" id="1_0jtcd"]
+[ext_resource type="Texture2D" uid="uid://csrdxpb7tr3x5" path="res://Assets/Boats/Boat 1.png" id="2_7brjj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qo5xa"]
+size = Vector2(232, 165)
+
+[node name="Boat" type="AnimatableBody2D"]
+script = ExtResource("1_0jtcd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_7brjj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-260.188, -57)
+scale = Vector2(0.9375, 1)
+polygon = PackedVector2Array(153.801, 3, 401.267, 3, 397.001, 26, 389.534, 49, 376.734, 66, 359.667, 83, 337.267, 100, 305.267, 110, 279.667, 113, 245.534, 109, 215.667, 97, 196.467, 84, 178.334, 66, 162.334, 42)
+
+[node name="Scale" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale"]
+position = Vector2(0, -140.5)
+shape = SubResource("RectangleShape2D_qo5xa")

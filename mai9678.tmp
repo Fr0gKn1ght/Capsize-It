@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://nu3t0aat5ktg"]
+
+[ext_resource type="Script" path="res://Scripts/targetCollision.gd" id="1_agbku"]
+[ext_resource type="Script" path="res://Scripts/CharacterBody2D.gd" id="2_amkjl"]
+[ext_resource type="Texture2D" uid="uid://bwjpi5w5yl87r" path="res://Assets/barrel-removebg-preview.png" id="3_n34qj"]
+[ext_resource type="Texture2D" uid="uid://du4m63kb2fxkb" path="res://Assets/boat-removebg-preview.png" id="4_eoqb2"]
+[ext_resource type="Texture2D" uid="uid://bxv2fx8iehi8q" path="res://Assets/slots-removebg-preview.png" id="5_mejpc"]
+[ext_resource type="Texture2D" uid="uid://bnevnq82emjfs" path="res://Assets/crate-removebg-preview.png" id="6_btykg"]
+[ext_resource type="Texture2D" uid="uid://6ygccxht8v44" path="res://Assets/cargo-removebg-preview.png" id="7_6hd83"]
+[ext_resource type="Texture2D" uid="uid://curo0o57r30co" path="res://Assets/sharkbox-removebg-preview.png" id="8_h84xx"]
+[ext_resource type="Texture2D" uid="uid://37dyrwi8yfvk" path="res://Assets/Anchorimg-removebg-preview.png" id="9_i5hmj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osup2"]
+size = Vector2(135, 123)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2xrs"]
+size = Vector2(214.124, 121)
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_agbku")
+
+[node name="Target" type="CharacterBody2D" parent="."]
+position = Vector2(79, 38)
+script = ExtResource("2_amkjl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target"]
+position = Vector2(874, 271)
+shape = SubResource("RectangleShape2D_osup2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Target"]
+position = Vector2(869, 267)
+texture = ExtResource("3_n34qj")
+
+[node name="Boat" type="CollisionShape2D" parent="."]
+position = Vector2(690, 601)
+scale = Vector2(1.4697, 1)
+shape = SubResource("RectangleShape2D_w2xrs")
+
+[node name="BoatSprite" type="Sprite2D" parent="Boat"]
+position = Vector2(3.8147e-05, -5)
+texture = ExtResource("4_eoqb2")
+
+[node name="Roster" type="Sprite2D" parent="."]
+position = Vector2(689, 79)
+scale = Vector2(0.768254, 0.702778)
+texture = ExtResource("5_mejpc")
+
+[node name="RosterElement0" type="Sprite2D" parent="Roster"]
+position = Vector2(-209.566, -9.9605)
+rotation = 0.0290376
+scale = Vector2(1.06916, 1.15119)
+texture = ExtResource("6_btykg")
+
+[node name="RosterElement1" type="Sprite2D" parent="Roster"]
+position = Vector2(-70.2893, -15.6522)
+rotation = -1.03831
+scale = Vector2(0.542561, 0.574477)
+texture = ExtResource("7_6hd83")
+
+[node name="RosterElement2" type="Sprite2D" parent="Roster"]
+position = Vector2(68.7825, -20.4761)
+rotation = -1.53956
+scale = Vector2(0.536697, 1.11343)
+texture = ExtResource("8_h84xx")
+
+[node name="RosterElement3" type="Sprite2D" parent="Roster"]
+position = Vector2(204.359, -22.6265)
+scale = Vector2(0.742768, 1.21573)
+texture = ExtResource("9_i5hmj")
+
+[node name="TextEdit" type="TextEdit" parent="Roster"]
+offset_left = -138.0
+offset_top = 94.0
+offset_right = -5.0
+offset_bottom = 132.0
+text = "Text Here ..."
+
+[node name="TextEdit2" type="TextEdit" parent="Roster"]
+offset_left = 24.6818
+offset_top = 94.087
+offset_right = 157.682
+offset_bottom = 132.087
+text = "Text Here ..."
