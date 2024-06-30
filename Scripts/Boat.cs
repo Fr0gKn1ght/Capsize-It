@@ -59,9 +59,9 @@ public partial class Boat : AnimatableBody2D
 
 	}
 
-    public override void _PhysicsProcess(double delta)
-    {
-        base._PhysicsProcess(delta);
+	public override void _PhysicsProcess(double delta)
+	{
+		base._PhysicsProcess(delta);
 		if(!Capsizing())
 		{
 			if(Math.Abs(tiltThreshold - Math.Abs(RadiansToDegrees(GetTransform().Rotation))) <= 0.1)
@@ -70,5 +70,5 @@ public partial class Boat : AnimatableBody2D
 			}
 		}
 		TiltBoat((float)delta);
-    }
+	}
 }
