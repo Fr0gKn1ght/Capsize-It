@@ -64,6 +64,12 @@ public partial class Boat : RigidBody2D
 
     public override void _IntegrateForces(PhysicsDirectBodyState2D state)
     {
+		if(AngularVelocity > 0)
+		{
+			AngularVelocity *= 0.99f;
+		}
+
+		//ApplyCentralForce(new Vector2(0,1));
 		//LinearVelocity = new Vector2(0,0);
     }
 
@@ -74,7 +80,7 @@ public partial class Boat : RigidBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		base._PhysicsProcess(delta);
+		/*base._PhysicsProcess(delta);
 		if(!Capsizing())
 		{
 			if(Math.Abs(tiltThreshold - Math.Abs(RadiansToDegrees(GetTransform().Rotation))) <= 0.1)
@@ -82,17 +88,14 @@ public partial class Boat : RigidBody2D
 				Capsize();
 			}
 		}
-		TiltBoat((float)delta);
+		TiltBoat((float)delta);*/
 	}
 
 	private void OnBodyEntered(Node body)
 	{
+		//ApplyTorque(DegreesToRadians(60));
 		AngularVelocity += DegreesToRadians(40);
-	}
-
-	private void OnScaleAreaEntered(Node2D body)
-	{
-		GD.Print("Area2D entered");
+		//ConstantTorque += 40;
 	}
 
 }
