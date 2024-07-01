@@ -62,13 +62,13 @@ public partial class Boat : RigidBody2D
 		MaxContactsReported = 50;
 	}
 
-    public override void _IntegrateForces(PhysicsDirectBodyState2D state)
-    {
+	public override void _IntegrateForces(PhysicsDirectBodyState2D state)
+	{
 		//LinearVelocity = new Vector2(0,0);
-    }
+	}
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
 	{
 	}
 

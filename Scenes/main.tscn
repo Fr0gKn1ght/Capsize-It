@@ -1,9 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://dkwm6yhkcc8ha"]
+[gd_scene load_steps=23 format=3 uid="uid://iuakasodb5dx"]
 
 [ext_resource type="PackedScene" uid="uid://cniy14tryo7jx" path="res://Scenes/Boat.tscn" id="1_3qu26"]
 [ext_resource type="Script" path="res://Scripts/targetCollision.gd" id="1_agbku"]
 [ext_resource type="Script" path="res://Scripts/CharacterBody2D.gd" id="2_amkjl"]
 [ext_resource type="Texture2D" uid="uid://bwjpi5w5yl87r" path="res://Assets/barrel-removebg-preview.png" id="3_n34qj"]
+[ext_resource type="Script" path="res://Scenes/Clouds.gd" id="6_2m7g3"]
+[ext_resource type="Script" path="res://Scenes/FishMovement.gd" id="8_8fbhi"]
 [ext_resource type="Texture2D" uid="uid://cj6cgcilcod30" path="res://Assets/GameBackground/Sky Copy.png" id="10_ffm6d"]
 [ext_resource type="Texture2D" uid="uid://r7njurduuvf1" path="res://Assets/GameBackground/Clouds.png" id="11_13t1m"]
 [ext_resource type="Texture2D" uid="uid://bm6lo5iyciqlg" path="res://Assets/GameBackground/Seaweed.png" id="12_0uv16"]
@@ -15,10 +17,18 @@
 [ext_resource type="Texture2D" uid="uid://2cmdc2ugj42m" path="res://Assets/GameBackground/WaterFront.png" id="15_01eyt"]
 [ext_resource type="AudioStream" uid="uid://cqk5nnob4i38n" path="res://Assets/Sounds/BGM.mp3" id="16_cje3f"]
 [ext_resource type="AudioStream" uid="uid://bf4qfwwy61bpj" path="res://Assets/Sounds/WaterAmbience.mp3" id="17_fx4fw"]
-[ext_resource type="PackedScene" uid="uid://bleafnomxtdxj" path="res://Scenes/WeightedObject.tscn" id="18_bytb8"]
+[ext_resource type="PackedScene" path="res://Scenes/WeightedObject.tscn" id="18_bytb8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osup2"]
 size = Vector2(135, 123)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dj4q0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ve0y0"]
+size = Vector2(42.5, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mlrkw"]
+size = Vector2(9.99995, 6.6666)
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_agbku")
@@ -46,22 +56,46 @@ scale = Vector2(0.6, 0.6)
 z_index = -255
 texture = ExtResource("10_ffm6d")
 
-[node name="Clouds" type="Sprite2D" parent="EnvironmentArt"]
-z_index = -100
+[node name="Clouds" type="RigidBody2D" parent="EnvironmentArt"]
 position = Vector2(0, -526)
+gravity_scale = 0.0
+script = ExtResource("6_2m7g3")
+
+[node name="Clouds" type="Sprite2D" parent="EnvironmentArt/Clouds"]
+z_index = -100
 texture = ExtResource("11_13t1m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnvironmentArt/Clouds"]
+shape = SubResource("RectangleShape2D_dj4q0")
+disabled = true
 
 [node name="Seaweed" type="Sprite2D" parent="EnvironmentArt"]
 position = Vector2(0, 820)
 texture = ExtResource("12_0uv16")
 
-[node name="Fish1" type="Sprite2D" parent="EnvironmentArt"]
+[node name="Fish1" type="RigidBody2D" parent="EnvironmentArt"]
 position = Vector2(278, 571)
+gravity_scale = 0.0
+script = ExtResource("8_8fbhi")
+
+[node name="Fish1Sprite" type="Sprite2D" parent="EnvironmentArt/Fish1"]
 texture = ExtResource("13_bwtqg")
 
-[node name="Fish2" type="Sprite2D" parent="EnvironmentArt"]
-position = Vector2(343, 645)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnvironmentArt/Fish1"]
+shape = SubResource("RectangleShape2D_ve0y0")
+disabled = true
+
+[node name="Fish2" type="RigidBody2D" parent="EnvironmentArt"]
+position = Vector2(331.667, 623.333)
+gravity_scale = 0.0
+script = ExtResource("8_8fbhi")
+
+[node name="Fish2Sprite" type="Sprite2D" parent="EnvironmentArt/Fish2"]
 texture = ExtResource("14_6kctp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnvironmentArt/Fish2"]
+shape = SubResource("RectangleShape2D_mlrkw")
+disabled = true
 
 [node name="WaterFront" type="Sprite2D" parent="EnvironmentArt"]
 position = Vector2(0, 672)
